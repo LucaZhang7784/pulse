@@ -1,0 +1,17 @@
+node_modules/
+dist/
+release/
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+Thumbs.db
+Desktop.ini
+
+# Local runtime settings and credentials
+settings.json
+auth.json
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

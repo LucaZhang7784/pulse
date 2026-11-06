@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;" />
+  <title>Pulse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="dock-right" data-expanded="false">
+    <button id="edge-trigger" class="edge-trigger" aria-label="Expand Pulse" aria-expanded="false" title="Click or hover for 1 second to expand Pulse"></button>
+    <div id="rail" class="rail" inert>
+      <div class="handle">
+        <span class="pulse-dot"></span>
+      </div>
+      <div id="providers" class="providers"></div>
+      <div class="rail-footer">
+        <button id="refresh" class="refresh" title="Refresh all providers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"></path>
+            <path d="M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="icons.js"></script>
+  <script src="ui.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>

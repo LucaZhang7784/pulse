@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" />
+  <title>Pulse Settings</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: rgba(30,40,37,.88);
+      color: #e6e6ea;
+      padding: 20px;
+      font-size: 13px;
+      -webkit-user-select: none;
+      overflow-y: auto;
+    }
+    html { min-height: 100%; background: transparent; }
+    body { min-height: 100vh; box-shadow: inset 0 0 28px rgba(0,0,0,.55); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.18); border-radius: 4px; }
+
+    h1 { font-size: 16px; margin-bottom: 4px; color: #fff; }
+    .sub { color: rgba(255,255,255,0.5); font-size: 11px; margin-bottom: 18px; line-height: 1.5; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-weight: 600; margin-bottom: 4px; color: #fff; }
+    .field .hint { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 3px; line-height: 1.4; }
+    .field input, .field textarea {
+      width: 100%;
+      background: #141c19;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      color: #e6e6ea;
+      padding: 8px 10px;
+      font-family: "Consolas", monospace;
+      font-size: 12px;
+      outline: none;
+    }
+    .field input:focus, .field textarea:focus { border-color: #8ce9d0; }
+    .field textarea { resize: vertical; min-height: 54px; }
+    .actions { display: flex; gap: 10px; margin-top: 20px; }
+    button {
+      flex: 1;
+      padding: 9px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    #save { background: #8ce9d0; color: #0a0a0a; }
+    #save:hover { background: #b0f0dd; }
+    #close { background: #34463e; color: #e6e6ea; }
+    #close:hover { background: #40564b; }
+    #status { margin-top: 12px; font-size: 12px; color: #8ce9d0; min-height: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Pulse Settings</h1>
+  <div class="sub">
+    Keys are stored in Pulse's local settings only. Leave a field blank to use a
+    credential already on this machine (CC Switch / OpenCode, or a provider
+    environment variable). Right-click the rail or tray icon to reopen this
+    window.
+  </div>
+
+  <div class="field">
+    <label>OpenRouter API key</label>
+    <input id="openRouterKey" type="password" autocomplete="off" />
+    <div class="hint">Auto-imported from CC Switch when blank.</div>
+  </div>
+
+  <div class="field">
+    <label>DeepSeek API key</label>
+    <input id="deepSeekKey" type="password" autocomplete="off" />
+    <div class="hint">Auto-imported from CC Switch / OpenCode when blank.</div>
+  </div>
+
+  <div class="field">
+    <label>Kimi For Coding API key</label>
+    <input id="kimiKey" type="password" autocomplete="off" />
+    <div class="hint">Auto-imported from CC Switch when blank.</div>
+  </div>
+
+  <div class="field">
+    <label>Xiaomi MiMo session cookie</label>
+    <textarea id="xiaomiCookie" autocomplete="off" spellcheck="false"></textarea>
+    <div class="hint">
+      A browser session, not an API key. Paste the <code>api-platform_serviceToken</code>
+      and <code>userId</code> cookies from the MiMo console (or a full <code>Cookie:</code> header).
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Vercel AI Gateway API key</label>
+    <input id="vercelKey" type="password" autocomplete="off" />
+    <div class="hint">An AI Gateway key (not a Vercel access token). Auto-imported from CC Switch when blank.</div>
+  </div>
+
+  <div class="field">
+    <label>MiniMax Token Plan API key</label>
+    <input id="minimaxKey" type="password" autocomplete="off" />
+    <div class="hint">Works with both the global and China Token Plan accounts. Auto-imported from CC Switch when blank.</div>
+  </div>
+
+  <div class="field">
+    <label>Zhipu GLM Coding Plan API key</label>
+    <input id="zhipuKey" type="password" autocomplete="off" />
+    <div class="hint">Auto-imported from CC Switch when blank. Requires an active GLM Coding Plan subscription.</div>
+  </div>
+
+  <div class="field">
+    <label>OfoxAI API key</label>
+    <input id="ofoxKey" type="password" autocomplete="off" />
+    <div class="hint">Any user-level <code>sk-...</code> key from the OfoxAI dashboard. Auto-imported from CC Switch when blank.</div>
+  </div>
+
+  <div class="actions">
+    <button id="save">Save</button>
+    <button id="close">Close</button>
+  </div>
+  <div id="status"></div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
+
